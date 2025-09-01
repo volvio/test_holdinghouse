@@ -9,6 +9,7 @@ make up
 Установите зависимости:
 
 docker exec -it symfony_app composer install
+
 make composer-install
 
 
