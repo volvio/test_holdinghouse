@@ -49,3 +49,6 @@ cache-clear:
 migrate:
 	docker exec -it $(APP_CONTAINER) php bin/console doctrine:migrations:migrate --no-interaction
 
+##Запуск тестов
+test:
+	docker exec -it $(APP_CONTAINER) ./vendor/bin/phpunit --testdox

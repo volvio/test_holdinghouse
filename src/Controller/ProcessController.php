@@ -13,7 +13,7 @@ class ProcessController extends AbstractController
 {
     private CacheInterface $cache;
     private LockFactory $lockFactory;
-    private Redis $redis;
+    private  $redis;
     
 
     public function __construct()
