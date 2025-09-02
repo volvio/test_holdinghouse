@@ -19,3 +19,5 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash \
 WORKDIR /var/www/html
 
 # Устанавливаем права
+RUN chown -R www-data:www-data /var/www/html
+
