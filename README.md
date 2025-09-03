@@ -15,7 +15,7 @@ docker exec -it symfony_app composer install
 make composer-install
 
 
-Открівается в браузере:
+Открывается в браузере:
 
 http://localhost:8080/process-huge-dataset
 
