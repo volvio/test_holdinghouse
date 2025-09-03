@@ -1,8 +1,9 @@
-Соберите и запустите контейнеры:
+Соборка и запуск контейнеров:
 
 docker-compose up -d --build
 
 или
+
 make build
 
 make up
@@ -11,6 +12,8 @@ make up
 Установка зависимостей:
 
 docker exec -it symfony_app composer install
+
+или
 
 make composer-install
 
