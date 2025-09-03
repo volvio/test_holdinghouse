@@ -22,3 +22,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\ProcessRedisService: 
+        class: App\Service\ProcessRedisService
+        public: true
+        autowire: false
+    App\Service\ProcessRedisServiceInterface:
+        alias: App\Service\ProcessRedisService
+        public: true

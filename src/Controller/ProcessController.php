@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\ProcessRedisServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,15 +12,12 @@ use \Redis;
 
 class ProcessController extends AbstractController
 {
-    private CacheInterface $cache;
-    private LockFactory $lockFactory;
     private  $redis;
     
 
-    public function __construct()
+    public function __construct( ProcessRedisServiceInterface $processRedisService)
     {
-        $this->redis = new \Redis();
-        $this->redis->connect($_ENV['REDIS_HOST'] ?? 'symfony_redis', (int)($_ENV['REDIS_PORT'] ?? 6379));
+        $this->redis = $processRedisService;
     }
     
     #[Route('/process-huge-dataset', name: 'process_huge_dataset', methods: ['GET'])]

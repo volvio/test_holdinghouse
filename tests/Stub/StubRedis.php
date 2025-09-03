@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Tests\Stub;
-
-class StubRedis
+use App\Service\ProcessRedisServiceInterface;
+class StubRedis implements ProcessRedisServiceInterface
 {
     private array $storage = [];
     private array $expirations = [];
@@ -22,7 +22,7 @@ class StubRedis
         return $this->storage[$key] ?? false;
     }
 
-    public function set(string $key, mixed $value, int $ttl = 0): bool
+    public function set(string $key, mixed $value, mixed $options = null): \Redis|string|bool
     {
         $this->storage[$key] = $value;
         if ($ttl > 0) {
