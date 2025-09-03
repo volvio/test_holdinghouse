@@ -2,20 +2,28 @@
 
 docker-compose up -d --build
 
+или
 make build
+
 make up
 
 
-Установите зависимости:
+Установка зависимостей:
 
 docker exec -it symfony_app composer install
 
 make composer-install
 
 
-Откройте в браузере:
+Открівается в браузере:
 
-http://localhost:8080
+http://localhost:8080/process-huge-dataset
 
 
-Redis доступен по адресу: redis://symfony_redis:6379
+Выполнение тестов:
+
+make test
+
+или
+
+docker exec -it $(APP_CONTAINER) ./vendor/bin/phpunit --testdox
